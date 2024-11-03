@@ -37,6 +37,6 @@ public class DeliveryForx {
 		FileUtils.copyFile(firstSrc, dec);
 
 // page close 
-		driver.close();
+		//driver.close();
 	}
 }
