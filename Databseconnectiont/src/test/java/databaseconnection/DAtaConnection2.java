@@ -31,9 +31,13 @@ public class DAtaConnection2 {
             System.out.println("Connection created.");
 
             // Define the SQL query to retrieve the data
-            String query = "SELECT [AadharId], [FirstName], [LastName], [MobileNumber], [BioMetric], " +
-                           "[Gender], [Status], [Address], [Pincode], [CreatedDate], [LastModifiedDate], [LastModifiedBy] " +
-                           "FROM [BPS].[dbo].[Aadhar]";
+            String query = "SELECT AadharId, FirstName, LastName, MobileNumber, BioMetric, " +
+                           "Gender, Status,Address,Pincode, CreatedDate, LastModifiedDate, LastModifiedBy " +
+                           "FROM BPS.dbo.Aadhar";
+// Resut fileter 
+//            String query = "SELECT AadharId, FirstName, LastName, MobileNumber, BioMetric, " +
+//                    "Gender, Status,Address,Pincode, CreatedDate, LastModifiedDate, LastModifiedBy " +
+//                    "FROM BPS.dbo.Aadhar where [AadharId] = 123456789101";
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -44,10 +48,10 @@ public class DAtaConnection2 {
             Document document = new Document(pdfDoc, PageSize.A3);
 
             // Add a title to the PDF
-            document.add(new Paragraph("Aadhar Data Report"));
+            document.add(new Paragraph("Aadhar Data Report "));
 
             // Define a table with 12 columns and specify column widths
-            float[] columnWidths = {1, 2, 2, 2, 2, 1, 1, 3, 1, 2, 2, 2}; // Adjust these widths as needed
+            float[] columnWidths = {1, 3, 2, 2, 2, 1, 1, 3, 1, 2, 2, 2}; // Adjust these widths as needed
             Table table = new Table(columnWidths);
 
             // Set table width to fill the page or use a specific width
@@ -55,17 +59,17 @@ public class DAtaConnection2 {
 
             // Add header cells to the table
             table.addHeaderCell(new Cell().add(new Paragraph("AadharId")));
-            table.addHeaderCell(new Cell().add(new Paragraph("FirstName")));
-            table.addHeaderCell(new Cell().add(new Paragraph("LastName")));
-            table.addHeaderCell(new Cell().add(new Paragraph("MobileNumber")));
-            table.addHeaderCell(new Cell().add(new Paragraph("BioMetric")));
+            table.addHeaderCell(new Cell().add(new Paragraph("First_Name")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Last_Name")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Mobile_Number")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Bio_Metric")));
             table.addHeaderCell(new Cell().add(new Paragraph("Gender")));
             table.addHeaderCell(new Cell().add(new Paragraph("Status")));
             table.addHeaderCell(new Cell().add(new Paragraph("Address")));
             table.addHeaderCell(new Cell().add(new Paragraph("Pincode")));
-            table.addHeaderCell(new Cell().add(new Paragraph("CreatedDate")));
-            table.addHeaderCell(new Cell().add(new Paragraph("LastModifiedDate")));
-            table.addHeaderCell(new Cell().add(new Paragraph("LastModifiedBy")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Created_Date")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Last_Modified_Date")));
+            table.addHeaderCell(new Cell().add(new Paragraph("Last_Modified_By")));
 
             // Process the result set and add data to the table
             while (rs.next()) {
