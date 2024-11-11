@@ -1,5 +1,10 @@
 package databaseconnection;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -7,16 +12,11 @@ import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.kernel.geom.PageSize;
-//import com.itextpdf.layout.property.UnitValue; // Add this import for UnitValue
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class DAtaConnection2 {
     public static void main(String[] args) {
+    	// Create database connection 
         String connectionUrl = "jdbc:sqlserver://DESKTOP-7IA5N30;databaseName=BPS;encrypt=true;trustServerCertificate=true;";
         String user = "sa";
         String password = "1234";
@@ -57,7 +57,7 @@ public class DAtaConnection2 {
             // Set table width to fill the page or use a specific width
          //   table.setWidth(UnitValue.createPercentValue(100)); // Table fills 100% of the available width
 
-            // Add header cells to the table
+            // Add Table header cell
             table.addHeaderCell(new Cell().add(new Paragraph("AadharId")));
             table.addHeaderCell(new Cell().add(new Paragraph("First_Name")));
             table.addHeaderCell(new Cell().add(new Paragraph("Last_Name")));
