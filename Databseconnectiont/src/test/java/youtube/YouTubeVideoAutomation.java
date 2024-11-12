@@ -18,9 +18,9 @@ public class YouTubeVideoAutomation {
 		Thread.sleep(2000);
 		driver.findElement(By.id("search-icon-legacy")).click();
 		Thread.sleep(2000);
-		//driver.findElement(By.xpath("//span[@title='Selenium Tutorial Videos - Automation Testing Tool']")).click();
+		driver.findElement(By.xpath("//span[@title='Selenium Tutorial Videos - Automation Testing Tool']")).click();
 		driver.findElement(By.xpath("//span[@class='style-scope ytd-playlist-renderer']")).click();
-		System.out.println("sasi");
+		//System.out.println("sasi");
 		Thread.sleep(5000);
 		File dec = new File("./screenshort/youtube(homepage).png");
 		// tack screen shot for the currect page 
