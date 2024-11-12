@@ -32,8 +32,8 @@ public class Gmail {
 	Thread.sleep(10000);
 	WebElement comp =driver.findElement(By.xpath("//DIV[@class='T-I T-I-KE L3'][text()='Compose']/self::DIV"));
 	comp.click();
-	WebElement comp1 =driver.findElement(By.xpath("//DIV[@class='T-I T-I-KE L3'][text()='Compose']/self::DIV"));
-	comp1.click();
+	//WebElement comp1 =driver.findElement(By.xpath("//DIV[@class='T-I T-I-KE L3'][text()='Compose']/self::DIV"));
+	//comp1.click();
 	Thread.sleep(10000);
 	WebElement comto =driver.findElement(By.xpath("//INPUT[@id=':sy']/self::INPUT"));
 	comto.click();
