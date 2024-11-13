@@ -61,7 +61,7 @@ public class DataConnection2 {
 
             // Process the result set and add data to the table
             while (rs.next()) {
-                table.addCell(createCell(rs.getString("Row ID")));
+                table.addCell(createCell(rs.getObject("Row ID")));
                 table.addCell(createCell(rs.getString("Order ID")));
                 table.addCell(createCell(rs.getString("Order Date")));
                 table.addCell(createCell(rs.getString("Ship Date")));
