@@ -65,7 +65,10 @@ public class GetDataInWebPage {
                 String dbRejected = String.valueOf(rs.getInt("Rejected"));
 
                 // Compare values and display matched and unmatched results
-                System.out.println("\n--- Comparison Results ---");
+                System.out.printf("-----------------------------------------------------------------------%n");
+                System.out.printf("|                       DataComparison Results                        | %n");
+                System.out.printf("-----------------------------------------------------------------------%n");
+                System.out.printf("|%-25s|%-11s|%-11s|%-19s|%n","Content","webValue","dbValue","Matched/Unmatched");
                 
                 compareValues("Total Orders", totalOrdersValue, dbTotal);
                 compareValues("New Orders", newOrdersValue, dbNew);
@@ -86,6 +89,7 @@ public class GetDataInWebPage {
             System.err.println("SQL Exception: " + e.getMessage());
             e.printStackTrace();
         }
+        System.out.printf("-----------------------------------------------------------------------%n");
 
         // Give the wait time the web page
         Thread.sleep(1000);
@@ -94,11 +98,18 @@ public class GetDataInWebPage {
     }
 
     // Method to compare and print matched/unmatched values
-    public static void compareValues(String label, String webValue, String dbValue) {
+    public static void compareValues(String label, String webValue, String dbValue) 
+    {
         if (webValue.equals(dbValue)) {
-            System.out.println(label + " matched: Web = " + webValue + ", DB = " + dbValue);
+        	System.out.printf("-----------------------------------------------------------------------%n");
+        	System.out.printf("|%-25s|%-11s|%-11s|%-19s|%n",label,webValue,dbValue,"Matched");
+        	//System.out.printf("-----------------------------------%n");
+        	//System.out.println(label + " matched: Web = " + webValue + ", DB = " + dbValue);
         } else {
-            System.out.println(label + " unmatched: Web = " + webValue + ", DB = " + dbValue);
+        	System.out.printf("-----------------------------------------------------------------------%n");
+        	System.out.printf("|%-25s|%-11s|%-11s|%-19s|%n",label,webValue,dbValue,"UnMatched");
+            //System.out.println(label + " unmatched: Web = " + webValue + ", DB = " + dbValue);
         }
+        
     }
 }
